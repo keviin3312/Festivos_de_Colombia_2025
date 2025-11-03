@@ -1,25 +1,22 @@
-package festivosdepais.api.dominio.entidades;
+package entidades;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@Table(name = "festivo")
+@Table(name = "tipo_festivo")   // pon el nombre real de tu tabla
 public class TipoFestivo {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "secuencia_Tipo_Festivo")
-    @SequenceGenerator(name = "secuencia_Tipo_Festivo", sequenceName = "secuencia_Tipo_Festivo", allocationSize = 1)
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "festivo", length = 100, unique = true)
+    @Column(name = "tipo", length = 100, unique = true)
     private String tipo;
 
     public TipoFestivo() {
@@ -45,6 +42,4 @@ public class TipoFestivo {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-
-    
 }
