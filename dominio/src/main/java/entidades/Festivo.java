@@ -1,10 +1,11 @@
-package festivosdepais.api.dominio.entidades;
+package entidades;
 
 import org.hibernate.annotations.Collate;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Festivo")
@@ -20,7 +21,7 @@ public class Festivo {
     private String idPais;
 
     @Column(name = "name", length = 100, unique = true)
-    private string name;
+    private String name;
 
     @Column(name = "Dia", length = 100, unique = true)
     private int Dia;
@@ -38,7 +39,7 @@ public class Festivo {
     public Festivo() {
     }
 
-    public Festivo(int id, String idPais, string name, int dia, int mes, int diasPascua, TipoFestivo idTipo) {
+    public Festivo(int id, String idPais, String name, int dia, int mes, int diasPascua, TipoFestivo idTipo) {
         this.id = id;
         this.idPais = idPais;
         this.name = name;
@@ -64,11 +65,11 @@ public class Festivo {
         this.idPais = idPais;
     }
 
-    public string getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(string name) {
+    public void setName(String name) {
         this.name = name;
     }
 

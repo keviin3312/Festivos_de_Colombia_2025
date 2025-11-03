@@ -1,31 +1,30 @@
-package festivosdepais.api.dominio.entidades;
+package entidades;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
 
 @Entity
-@Table(name = "Pais")
+@Table(name = "pais")
 public class Pais {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "secuencia_pais")
-    @SequenceGenerator(name = "secuencia_pais", sequenceName = "secuencia_pais", allocationSize = 1)
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @ManyToOne
-    @JoinColumn(name = "Nombre", referencedColumnName = "id")
-    private Festivo Nombre;
+    @Column(name = "nombre", length = 100, unique = true)
+    private String nombre;
 
     public Pais() {
     }
 
-    public Pais(int id, TipoFestivo nombre) {
+    public Pais(int id, String nombre) {
         this.id = id;
-        Nombre = nombre;
+        this.nombre = nombre;
     }
 
     public int getId() {
@@ -36,14 +35,11 @@ public class Pais {
         this.id = id;
     }
 
-    public TipoFestivo getNombre() {
-        return Nombre;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombre(TipoFestivo nombre) {
-        Nombre = nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-
-    
-    
 }
