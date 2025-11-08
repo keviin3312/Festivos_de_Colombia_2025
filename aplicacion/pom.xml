@@ -14,18 +14,31 @@
     <name>aplicacion</name>
 
     <dependencies>
-        <!-- depende del dominio -->
+        <!-- ver entidades -->
         <dependency>
             <groupId>festivosdepais</groupId>
             <artifactId>dominio</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <!-- y del core -->
+        <!-- usar repos de infraestructura -->
+        <dependency>
+            <groupId>festivosdepais</groupId>
+            <artifactId>infraestructura</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- usar lógica de fechas -->
         <dependency>
             <groupId>festivosdepais</groupId>
             <artifactId>core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- para @Service -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 

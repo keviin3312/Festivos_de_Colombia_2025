@@ -1,11 +1,6 @@
-package entidades;
+package festivosdepais.dominio.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "pais")
@@ -14,24 +9,24 @@ public class Pais {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
-    @Column(name = "nombre", length = 100, unique = true)
+    @Column(name = "nombre", nullable = false, unique = true, length = 100)
     private String nombre;
 
     public Pais() {
     }
 
-    public Pais(int id, String nombre) {
+    public Pais(Integer id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

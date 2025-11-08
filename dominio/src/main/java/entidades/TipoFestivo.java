@@ -1,37 +1,32 @@
-package entidades;
+package festivosdepais.dominio.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "tipo_festivo")   // pon el nombre real de tu tabla
+@Table(name = "tipofestivo")
 public class TipoFestivo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Integer id;
 
-    @Column(name = "tipo", length = 100, unique = true)
+    @Column(name = "tipo", nullable = false, unique = true, length = 100)
     private String tipo;
 
     public TipoFestivo() {
     }
 
-    public TipoFestivo(int id, String tipo) {
+    public TipoFestivo(Integer id, String tipo) {
         this.id = id;
         this.tipo = tipo;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

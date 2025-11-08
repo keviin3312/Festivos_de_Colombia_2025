@@ -3,7 +3,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- MISMO parent que el resto -->
     <parent>
         <groupId>festivosdepais</groupId>
         <artifactId>api</artifactId>
@@ -15,7 +14,6 @@
     <name>core</name>
 
     <dependencies>
-        <!-- lo que de verdad uses -->
         <dependency>
             <groupId>festivosdepais</groupId>
             <artifactId>dominio</artifactId>
@@ -24,7 +22,6 @@
     </dependencies>
 
     <build>
-        <!-- este módulo NO arranca Spring Boot -->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

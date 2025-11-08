@@ -28,13 +28,13 @@
         </dependency>
 
         <!-- opcional: si quieres que aquí también haya driver -->
-        <!--
+        
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
-        -->
+       
     </dependencies>
 
     <build>
@@ -47,6 +47,8 @@
                     <skip>true</skip>
                 </configuration>
             </plugin>
+
+
 
             <!-- compilar a java 17 -->
             <plugin>
