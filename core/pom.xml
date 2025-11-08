@@ -3,26 +3,29 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- MISMO parent que el resto -->
     <parent>
         <groupId>festivosdepais</groupId>
         <artifactId>api</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>dominio</artifactId>
+    <artifactId>core</artifactId>
     <packaging>jar</packaging>
+    <name>core</name>
 
     <dependencies>
+        <!-- lo que de verdad uses -->
         <dependency>
-            <groupId>jakarta.persistence</groupId>
-            <artifactId>jakarta.persistence-api</artifactId>
-            <version>3.1.0</version>
+            <groupId>festivosdepais</groupId>
+            <artifactId>dominio</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
     <build>
+        <!-- este módulo NO arranca Spring Boot -->
         <plugins>
-            <!-- MUY IMPORTANTE: no ejecutar spring-boot aquí -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

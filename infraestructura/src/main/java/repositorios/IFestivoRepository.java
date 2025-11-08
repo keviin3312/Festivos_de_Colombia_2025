@@ -1,36 +1,16 @@
-package repositorios;
+package festivosdepais.infraestructura.repository;
 
-import java.util.List;
-
+import entidades.Festivo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import entidades.Festivo;
+import java.util.List;
 
 @Repository
-public interface IFestivoRepository extends JpaRepository<Festivo, Long> {
+public interface IFestivoRepository extends JpaRepository<Festivo, Integer> {
 
-    @Query("SELECT f FROM Festivo f " +
-           "WHERE LOWER(f.nombre) LIKE LOWER(CONCAT('%', :nombre, '%')) " +
-           "ORDER BY f.nombre ASC")
+    // buscar por nombre (en tu entidad el campo se llama "name")
+    @Query("SELECT f FROM Festivo f WHERE LOWER(f.name) LIKE LOWER(CONCAT('%', :nombre, '%')) ORDER BY f.name ASC")
     List<Festivo> buscar(String nombre);
 }
-
-
-
-// package festivosdepais.api.infraestructura.repository;
-
-// import java.util.List;
-// import org.springframework.data.jpa.repository.JpaRepository;
-// import org.springframework.data.jpa.repository.Query;
-// import org.springframework.stereotype.Repository;
-// import festivosdepais.api.dominio.entidades;
-
-// @Repository
-// public interface IFestivoRepository extends JpaRepository<Festivo, integer> {
- 
-//   @Query("SELECT f FROM Festivo f WHERE f.nombre LIKE '%' || ?1 || '&' ORDER BY f.nombre ASC ")
-//   public List <Festivo> buscar (string nombre);
-
-// }

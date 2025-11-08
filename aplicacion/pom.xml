@@ -9,37 +9,29 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>infraestructura</artifactId>
+    <artifactId>aplicacion</artifactId>
     <packaging>jar</packaging>
-    <name>infraestructura</name>
+    <name>aplicacion</name>
 
     <dependencies>
-        <!-- entidades -->
+        <!-- depende del dominio -->
         <dependency>
             <groupId>festivosdepais</groupId>
             <artifactId>dominio</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
-        <!-- spring data jpa para los repos -->
+        <!-- y del core -->
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <groupId>festivosdepais</groupId>
+            <artifactId>core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
-        <!-- opcional: si quieres que aquí también haya driver -->
-        <!--
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        -->
     </dependencies>
 
     <build>
         <plugins>
-            <!-- igual que en dominio/core/aplicacion: NO repackage -->
+            <!-- este módulo NO debe crear jar ejecutable -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -48,7 +40,7 @@
                 </configuration>
             </plugin>
 
-            <!-- compilar a java 17 -->
+            <!-- forzar java 17, igual que en los otros -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
